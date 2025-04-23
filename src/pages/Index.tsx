@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Code2, Palette, Hash, FileJson, Regex } from "lucide-react";
+import { ArrowRight, Code2, Palette, Hash, FileJson, Regex, KeyRound } from "lucide-react";
 
 const tools = [
   {
@@ -39,6 +39,13 @@ const tools = [
     icon: <Hash className="h-8 w-8" />,
     path: "/hash",
     color: "bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400",
+  },
+  {
+    name: "Token Generator",
+    description: "Generate UUIDs and secure random tokens for your applications.",
+    icon: <KeyRound className="h-8 w-8" />,
+    path: "/token",
+    color: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400",
   },
 ];
 

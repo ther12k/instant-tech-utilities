@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +11,7 @@ import JsonPage from "./pages/JsonPage";
 import ColorPage from "./pages/ColorPage";
 import RegexPage from "./pages/RegexPage";
 import HashPage from "./pages/HashPage";
+import TokenPage from "./pages/TokenPage";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,7 @@ const App = () => (
           <Route path="/color" element={<ColorPage />} />
           <Route path="/regex" element={<RegexPage />} />
           <Route path="/hash" element={<HashPage />} />
+          <Route path="/token" element={<TokenPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

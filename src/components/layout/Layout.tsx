@@ -37,7 +37,8 @@ export default function Layout({ children }: LayoutProps) {
     { path: "/json", label: "JSON Formatter" },
     { path: "/color", label: "Color Converter" },
     { path: "/regex", label: "Regex Tester" },
-    { path: "/hash", label: "Hash Generator" }
+    { path: "/hash", label: "Hash Generator" },
+    { path: "/token", label: "Token Generator" }
   ];
 
   return (
