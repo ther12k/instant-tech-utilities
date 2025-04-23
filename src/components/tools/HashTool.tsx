@@ -183,26 +183,26 @@ export default function HashTool() {
             
             <div className="space-y-2">
               <Label>Output Format</Label>
-              <div className="flex flex-wrap gap-6">
+              <RadioGroup 
+                value={outputFormat} 
+                onValueChange={setOutputFormat}
+                className="flex flex-wrap gap-6"
+              >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem 
                     id="format-hex" 
-                    value="hex" 
-                    checked={outputFormat === "hex"}
-                    onClick={() => setOutputFormat("hex")}
+                    value="hex"
                   />
                   <Label htmlFor="format-hex" className="cursor-pointer">Hexadecimal</Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem 
                     id="format-base64" 
-                    value="base64" 
-                    checked={outputFormat === "base64"}
-                    onClick={() => setOutputFormat("base64")}
+                    value="base64"
                   />
                   <Label htmlFor="format-base64" className="cursor-pointer">Base64</Label>
                 </div>
-              </div>
+              </RadioGroup>
             </div>
             
             <div className="flex items-center space-x-2">
