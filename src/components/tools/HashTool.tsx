@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Copy, Upload, RefreshCw } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 // Function to convert ArrayBuffer to hex string
 const bufferToHex = (buffer: ArrayBuffer): string => {
@@ -27,9 +27,19 @@ export default function HashTool() {
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [outputFormat, setOutputFormat] = useState<"hex" | "base64">("hex");
   const [uppercaseOutput, setUppercaseOutput] = useState<boolean>(false);
+  const { toast } = useToast();
   
   // List of available hash algorithms
   const hashAlgorithms = ["MD5", "SHA-1", "SHA-256", "SHA-384", "SHA-512"];
+
+  // Map of algorithm names to their Web Crypto API names
+  const algorithmMap: Record<string, string> = {
+    "MD5": "MD5",
+    "SHA-1": "SHA-1",
+    "SHA-256": "SHA-256",
+    "SHA-384": "SHA-384",
+    "SHA-512": "SHA-512"
+  };
 
   const generateHash = async () => {
     setIsProcessing(true);
@@ -46,8 +56,8 @@ export default function HashTool() {
         data = encoder.encode(text);
       }
       
-      // Use the Web Crypto API to generate the hash
-      const algorithm = hashAlgorithm.replace('-', '').toLowerCase();
+      // Use the correct algorithm name format for the Web Crypto API
+      const algorithm = algorithmMap[hashAlgorithm];
       const hashBuffer = await window.crypto.subtle.digest(algorithm, data);
       
       // Convert the hash to the desired format
@@ -90,7 +100,12 @@ export default function HashTool() {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(hashResult)
-      .then(() => alert("Hash copied to clipboard!"))
+      .then(() => {
+        toast({
+          title: "Copied!",
+          description: "Hash copied to clipboard"
+        });
+      })
       .catch(err => console.error("Could not copy text: ", err));
   };
 
@@ -185,7 +200,7 @@ export default function HashTool() {
               <Label>Output Format</Label>
               <RadioGroup 
                 value={outputFormat} 
-                onValueChange={setOutputFormat}
+                onValueChange={(value) => setOutputFormat(value as "hex" | "base64")}
                 className="flex flex-wrap gap-6"
               >
                 <div className="flex items-center space-x-2">
