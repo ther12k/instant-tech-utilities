@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Base64Page from "./pages/Base64Page";
+import JsonPage from "./pages/JsonPage";
+import ColorPage from "./pages/ColorPage";
+import RegexPage from "./pages/RegexPage";
+import HashPage from "./pages/HashPage";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +21,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/base64" element={<Base64Page />} />
+          <Route path="/json" element={<JsonPage />} />
+          <Route path="/color" element={<ColorPage />} />
+          <Route path="/regex" element={<RegexPage />} />
+          <Route path="/hash" element={<HashPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
