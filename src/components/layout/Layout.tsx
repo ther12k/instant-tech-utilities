@@ -38,7 +38,8 @@ export default function Layout({ children }: LayoutProps) {
     { path: "/color", label: "Color Converter" },
     { path: "/regex", label: "Regex Tester" },
     { path: "/hash", label: "Hash Generator" },
-    { path: "/token", label: "Token Generator" }
+    { path: "/token", label: "Token Generator" },
+    { path: "/url", label: "URL Encoder/Decoder" }
   ];
 
   return (

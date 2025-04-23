@@ -12,6 +12,7 @@ import ColorPage from "./pages/ColorPage";
 import RegexPage from "./pages/RegexPage";
 import HashPage from "./pages/HashPage";
 import TokenPage from "./pages/TokenPage";
+import UrlPage from "./pages/UrlPage";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/regex" element={<RegexPage />} />
           <Route path="/hash" element={<HashPage />} />
           <Route path="/token" element={<TokenPage />} />
+          <Route path="/url" element={<UrlPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
