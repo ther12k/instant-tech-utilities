@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import TextEncoder from "./base64/TextEncoder";
 import TextDecoder from "./base64/TextDecoder";
 import ImageEncoder from "./base64/ImageEncoder";
+import DataUrlConverter from "./base64/DataUrlConverter";
 
 export default function Base64Tool() {
   const [activeTab, setActiveTab] = useState("encode");
@@ -27,6 +28,7 @@ export default function Base64Tool() {
             <TabsTrigger value="encode">Encode</TabsTrigger>
             <TabsTrigger value="decode">Decode</TabsTrigger>
             <TabsTrigger value="image">Image to Base64</TabsTrigger>
+            <TabsTrigger value="dataurl">Base64 to Data URL</TabsTrigger>
           </TabsList>
           
           <TabsContent value="encode">
@@ -39,6 +41,10 @@ export default function Base64Tool() {
           
           <TabsContent value="image">
             <ImageEncoder />
+          </TabsContent>
+          
+          <TabsContent value="dataurl">
+            <DataUrlConverter />
           </TabsContent>
         </Tabs>
       </CardContent>
