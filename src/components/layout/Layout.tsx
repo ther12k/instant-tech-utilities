@@ -39,7 +39,8 @@ export default function Layout({ children }: LayoutProps) {
     { path: "/regex", label: "Regex Tester" },
     { path: "/hash", label: "Hash Generator" },
     { path: "/token", label: "Token Generator" },
-    { path: "/url", label: "URL Encoder/Decoder" }
+    { path: "/url", label: "URL Encoder/Decoder" },
+    { path: "/case-converter", label: "Case Converter" }
   ];
 
   return (

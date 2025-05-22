@@ -13,6 +13,7 @@ import RegexPage from "./pages/RegexPage";
 import HashPage from "./pages/HashPage";
 import TokenPage from "./pages/TokenPage";
 import UrlPage from "./pages/UrlPage";
+import CaseConverterPage from "./pages/CaseConverterPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/hash" element={<HashPage />} />
           <Route path="/token" element={<TokenPage />} />
           <Route path="/url" element={<UrlPage />} />
+          <Route path="/case-converter" element={<CaseConverterPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
